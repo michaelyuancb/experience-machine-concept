@@ -1,0 +1,246 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Experience Machine</title>
+    <meta
+      name="description"
+      content="Project page for The Experience Machine, a conceptual computation model for experience-driven intelligence."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="paper-header">
+        <h1>The Experience Machine</h1>
+        <p class="subtitle">
+          A Conceptual Computation Model for Experience-Driven Intelligence
+        </p>
+        <p class="authors">
+          Chengbo Yuan<br />
+          Tsinghua University
+        </p>
+        <nav class="links" aria-label="Page sections">
+          <a class="full-paper-link" href="paper.pdf" target="_blank" rel="noopener noreferrer">Full Paper</a>
+          <a href="#abstract">Abstract</a>
+          <a href="#overview">Overview</a>
+          <a href="#model">Model</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#citation">Citation</a>
+        </nav>
+      </header>
+
+      <figure>
+        <video controls preload="metadata" playsinline>
+          <source src="EM_video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <figcaption>
+          Video overview of The Experience Machine.
+        </figcaption>
+      </figure>
+
+      <section id="overview" class="summary-panel">
+        <h2>Overview</h2>
+        <p>
+          The Experience Machine (EM) proposes a simple abstraction for
+          experience-driven intelligence: an agent continuously reads and writes
+          an Experience Tape, where interaction histories become the substrate
+          for future reasoning, prediction, action, and adaptation.
+        </p>
+        <div class="facts">
+          <div>
+            <strong>Core object</strong>
+            <span>Experience Tape</span>
+          </div>
+          <div>
+            <strong>Tape contents</strong>
+            <span>State, Critique, Intent, Action</span>
+          </div>
+          <div>
+            <strong>Experience sources</strong>
+            <span>Imagination, Environment, Human Communication</span>
+          </div>
+        </div>
+      </section>
+
+      <figure>
+        <img
+          src="figure/teaser_01.png"
+          alt="Overview of the Experience Machine"
+        />
+        <figcaption>
+          Overview of the Experience Machine. Different experience sources write
+          state, critique, intent, and action sequentially onto a shared
+          Experience Tape.
+        </figcaption>
+      </figure>
+
+      <section id="abstract">
+        <h2>Abstract</h2>
+        <div class="abstract-box">
+          <p>
+            Humans learn from experience, while most current embodied agents do
+            not. Modern robots are largely trained from offline demonstrations and
+            exhibit only limited adaptation after deployment. The Experience
+            Machine (EM) is a conceptual model for experience-driven intelligence:
+            a computational paradigm in which intelligence continuously adapts to
+            accumulated experience.
+          </p>
+          <p>
+            EM draws inspiration from the Turing Machine and views experience as a
+            tape written with state, critique, intent, and action in temporal
+            order. The machine reads this tape to perform prediction and
+            processing, unifying policy inference, world modeling, outcome
+            evaluation, and internal belief updating.
+          </p>
+          <p>
+            The key idea is that tape content can come from diverse sources:
+            internal imagination, real-world interaction, and human supervision.
+            This provides a common view of embodied reasoning, self-exploration,
+            reinforcement learning from environment, and human-machine
+            interaction.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>Main Contributions</h2>
+        <ol class="contributions">
+          <li>
+            Introduces the Experience Machine as a conceptual computation model
+            centered on accumulated experience.
+          </li>
+          <li>
+            Defines the Experience Tape as a shared temporal structure for
+            state, critique, intent, and action.
+          </li>
+          <li>
+            Shows how different experience sources can naturally produce
+            reasoning, self-exploration, feedback learning, and human-machine
+            interaction.
+          </li>
+        </ol>
+      </section>
+
+      <section id="model">
+        <h2>Experience Tape</h2>
+        <p>
+          The Experience Tape records the interaction history of an intelligent
+          system. At time <em>t</em>, it contains four kinds of content:
+        </p>
+        <ul>
+          <li><strong>State S<sub>t</sub></strong>: the current world observation.</li>
+          <li><strong>Critique C<sub>t</sub></strong>: evaluation of accumulated experience.</li>
+          <li><strong>Intent I<sub>t</sub></strong>: the objective or demand for interaction.</li>
+          <li><strong>Action A<sub>t</sub></strong>: the action produced by policy inference.</li>
+        </ul>
+        <p class="formula">
+          ET = (..., S<sub>t</sub>, C<sub>t</sub>, I<sub>t</sub>, A<sub>t</sub>,
+          S<sub>t+1</sub>, C<sub>t+1</sub>, I<sub>t+1</sub>, A<sub>t+1</sub>, ...)
+        </p>
+
+        <h2>Computational Model</h2>
+        <p>
+          Given the current tape and internal belief, EM performs sequential
+          next-content prediction. The predicted content is written back to the
+          tape and becomes context for subsequent computation.
+        </p>
+        <ul>
+          <li><strong>Policy inference</strong>: predict action from state, critique, and intent.</li>
+          <li><strong>World modeling</strong>: predict the next state after an action.</li>
+          <li><strong>Result evaluation</strong>: predict critique from the resulting experience.</li>
+          <li><strong>Intent self-proposing</strong>: propose a new intent or subgoal.</li>
+        </ul>
+
+        <div class="note">
+          These functions are treated as different cases of the same
+          next-content prediction process, rather than as separate computational
+          paradigms.
+        </div>
+
+        <figure>
+          <img
+            src="figure/model_01.png"
+            alt="Experience Machine computational model"
+          />
+          <figcaption>
+            Next-content prediction over the Experience Tape.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="capabilities">
+        <h2>Experience Sources</h2>
+        <p>
+          EM classifies experience according to who or what writes to the tape.
+        </p>
+        <ul>
+          <li>
+            <strong>Internal imagination</strong>: model-generated experience
+            used for reasoning, failure analysis, and self-exploration.
+          </li>
+          <li>
+            <strong>Environmental feedback</strong>: grounded state and outcome
+            information written by real-world interaction.
+          </li>
+          <li>
+            <strong>External communication</strong>: human instructions,
+            demonstrations, corrections, and evaluations.
+          </li>
+        </ul>
+
+        <h2>Capabilities</h2>
+        <p>
+          By changing the sources of state, critique, intent, and action, the
+          same tape-based computation can express several experience-driven
+          behaviors:
+        </p>
+        <ul>
+          <li><strong>Adaptive embodied reasoning</strong>: deliberate through imagined futures before execution.</li>
+          <li><strong>Self-exploration</strong>: use observed outcomes to generate new critiques and intents.</li>
+          <li><strong>Learning from feedback</strong>: incorporate environmental or human evaluation into future behavior.</li>
+          <li><strong>Human-machine interaction</strong>: treat task assignment, correction, and guidance as writes to the same tape.</li>
+        </ul>
+
+        <figure>
+          <img
+            src="figure/capabilities_01.png"
+            alt="Experience Machine capabilities"
+          />
+          <figcaption>
+            Different experience-source assignments give rise to different
+            capabilities under the same computational model.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Conclusion</h2>
+        <p>
+          The Experience Machine treats experience as a dynamic computational
+          tape. It places reasoning, prediction, action, feedback, and
+          interaction inside one sequential process. Rather than proposing a
+          specific architecture, EM provides an abstraction for future systems
+          that adapt continuously through accumulated experience.
+        </p>
+        <p>
+          If you want to read the full content, please see the
+          <a href="paper.pdf" target="_blank" rel="noopener noreferrer">full paper</a>.
+        </p>
+      </section>
+
+      <section id="citation">
+        <h2>Citation</h2>
+        <pre><code>@draft{yuan2026experience,
+  title  = {The Experience Machine: A Conceptual Computation Model for Experience-Driven Intelligence},
+  author = {Yuan, Chengbo},
+  year   = {2026}
+}</code></pre>
+      </section>
+    </main>
+  </body>
+</html>
+
+
